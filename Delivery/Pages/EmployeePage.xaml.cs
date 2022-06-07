@@ -35,5 +35,10 @@ namespace Delivery.Pages
 
             DgEmployee.ItemsSource = employees;
         }
+
+        private void BtnAddEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            ClassHelper.NavigateClass.frame.Navigate(new Pages.AddEditEmployeePage());
+        }
     }
 }

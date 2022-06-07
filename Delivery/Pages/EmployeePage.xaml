@@ -32,5 +32,32 @@
                 <DataGridTextColumn Header="Роль" Width="150" Binding="{Binding Role.NameRole}"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <WrapPanel Grid.Row="3"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            
+            <Button x:Name="BtnAddEmployee" 
+                    Content="Добавить"
+                    Height="35"
+                    Width="200"
+                    FontSize="16"
+                    Margin="10 0"
+                    Click="BtnAddEmployee_Click"/>
+
+            <Button x:Name="BtnEditEmployee" 
+                    Content="Изменить"
+                    Height="35"
+                    Width="200"
+                    FontSize="16"
+                    Margin="10 0"/>
+
+            <Button x:Name="BtnDeleteEmployee" 
+                    Content="Удалить"
+                    Height="35"
+                    Width="200"
+                    FontSize="16"
+                    Margin="10 0"/>
+        </WrapPanel>
     </Grid>
 </Page>

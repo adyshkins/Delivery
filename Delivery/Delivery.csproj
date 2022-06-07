@@ -64,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Pages\AddEditEmployeePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ClientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -146,6 +150,9 @@
     </Compile>
     <Compile Include="EF\sysdiagrams.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddEditEmployeePage.xaml.cs">
+      <DependentUpon>AddEditEmployeePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ClientPage.xaml.cs">
       <DependentUpon>ClientPage.xaml</DependentUpon>

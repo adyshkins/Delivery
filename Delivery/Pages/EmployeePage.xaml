@@ -57,7 +57,8 @@
                     Height="35"
                     Width="200"
                     FontSize="16"
-                    Margin="10 0"/>
+                    Margin="10 0"
+                    Click="BtnDeleteEmployee_Click"/>
         </WrapPanel>
     </Grid>
 </Page>

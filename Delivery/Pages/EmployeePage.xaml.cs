@@ -40,5 +40,24 @@ namespace Delivery.Pages
         {
             ClassHelper.NavigateClass.frame.Navigate(new Pages.AddEditEmployeePage());
         }
+
+        private void BtnDeleteEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            if (DgEmployee.SelectedItem is EF.Employee)
+            {
+                var item = DgEmployee.SelectedItem as EF.Employee;
+
+                ClassHelper.AppData.context.Employee.Remove(item);
+                ClassHelper.AppData.context.SaveChanges();
+                GetListEmployee();
+                MessageBox.Show("Пользователь удален", "Успех", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            else
+            {
+                MessageBox.Show("Запись не выбрана");
+            }          
+
+           
+        }
     }
 }

@@ -55,9 +55,23 @@ namespace Delivery.Pages
             else
             {
                 MessageBox.Show("Запись не выбрана");
-            }          
+            }      
+        }
 
-           
+        private void BtnEditEmployee_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (DgEmployee.SelectedItem is EF.Employee)
+            {
+                var employee = DgEmployee.SelectedItem as EF.Employee;
+                ClassHelper.NavigateClass.frame.Navigate(new Pages.AddEditEmployeePage(employee));
+
+            }
+            else
+            {
+                MessageBox.Show("Запись не выбрана");
+            }
+
         }
     }
 }

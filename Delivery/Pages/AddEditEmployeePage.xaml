@@ -28,7 +28,8 @@
 
         <!-- Заголовок -->
 
-        <TextBlock Text="Добавление сотрудника"
+        <TextBlock x:Name="TbTitle" 
+                   Text="Добавление сотрудника"
                    Grid.ColumnSpan="2"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"

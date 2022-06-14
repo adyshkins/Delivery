@@ -21,9 +21,20 @@ namespace Delivery.Pages
     public partial class EmployeePage : Page
     {
         List<EF.Employee> employees = new List<EF.Employee>();
+
+        List<string> sortList = new List<string>() 
+        {
+            "По умолчанию",
+            "По фамилии",
+            "По имени",
+            "По логину",
+            "По должности"
+        };
         public EmployeePage()
         {
             InitializeComponent();
+            CmbSort.ItemsSource = sortList;
+            CmbSort.SelectedIndex = 0;
             GetListEmployee();
         }
 
@@ -31,7 +42,38 @@ namespace Delivery.Pages
         {
             employees = ClassHelper.AppData.context.Employee.ToList();
 
-            // издевательства над списком сотрудников
+            // поиск
+
+            employees = employees.
+                Where(i => i.LastName.Contains(TxbSearch.Text) 
+                || i.FirstName.Contains(TxbSearch.Text)
+                || i.Login.Contains(TxbSearch.Text)
+                ).ToList();
+
+            // сортировка
+
+            switch (CmbSort.SelectedIndex)
+            {
+                case 0:
+                    employees = employees.OrderBy(i => i.ID).ToList();
+                    break;
+
+                    case 1: employees = employees.OrderBy(i => i.LastName).ToList();
+                    break;
+
+                case 2: employees = employees.OrderBy(i => i.FirstName).ToList();
+                    break;
+
+                case 3: employees = employees.OrderBy(i => i.Login).ToList();
+                    break;
+
+                case 4:
+                    employees = employees.OrderBy(i => i.IDRole).ToList();
+                    break;
+                default:
+                    break;
+            }
+
 
             DgEmployee.ItemsSource = employees;
         }
@@ -72,6 +114,16 @@ namespace Delivery.Pages
                 MessageBox.Show("Запись не выбрана");
             }
 
+        }
+
+        private void TxbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            GetListEmployee();
+        }
+
+        private void CmbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GetListEmployee();
         }
     }
 }

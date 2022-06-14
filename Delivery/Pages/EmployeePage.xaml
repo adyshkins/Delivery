@@ -19,7 +19,26 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontSize="40"/>
+        <WrapPanel Grid.Row="1" VerticalAlignment="Center">
+            <TextBlock Text="Поиск"
+                       Margin="10"
+                       FontSize="20"/>
 
+            <TextBox x:Name="TxbSearch"
+                     Width="200"
+                     Height="35"
+                     FontSize="18" 
+                     VerticalContentAlignment="Center"
+                     TextChanged="TxbSearch_TextChanged"/>
+
+            <TextBlock Text="Сортировка"
+                        Margin="10"
+                       FontSize="20"/>
+            <ComboBox x:Name="CmbSort"
+                      Width="200"
+                      Height="35" SelectionChanged="CmbSort_SelectionChanged"/>
+        </WrapPanel>
+        
         <DataGrid Grid.Row="2"
                   x:Name="DgEmployee"
                   AutoGenerateColumns="False">
